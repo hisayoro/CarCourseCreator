@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemoController : MonoBehaviour
+public class ItemController : MonoBehaviour
 {
     private Vector3 mOffset;
     private float mZCoord;
@@ -21,8 +21,19 @@ public class ItemoController : MonoBehaviour
         return Camera.main.ScreenToWorldPoint(mousePoint);
     }
 
+    
+    /*
     void OnMouseDrag()
     {
         transform.position = GetMouseWorldPos() + mOffset;
     }
+    */
+
+    void OnMouseDrag()
+    {
+        //マウスドラッグするとXZ平面のみを移動するようになる(Y=0)
+        Vector3 mousePosition = GetMouseWorldPos() + mOffset;
+        transform.position = new Vector3(mousePosition.x, 0, mousePosition.z);
+    }
+
 }
