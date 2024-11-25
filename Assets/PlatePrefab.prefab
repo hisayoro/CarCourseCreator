@@ -132,6 +132,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   connectionDistance: 5
-  otherObject: {fileID: 2294758500268861881, guid: a2816618e5a729940b55d7efc67ace4f, type: 3}
+  otherObject: {fileID: 3056984230220651695, guid: a357534eb38f60443969deee483ff710, type: 3}
   leftOffset: {x: -3, y: 0, z: 0}
   rightOffset: {x: 3, y: 0, z: 0}

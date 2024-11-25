@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemController : MonoBehaviour
+public class PartsController : MonoBehaviour
 {
     private Vector3 mOffset;
     private float mZCoord;
@@ -20,14 +20,6 @@ public class ItemController : MonoBehaviour
 
         return Camera.main.ScreenToWorldPoint(mousePoint);
     }
-
-    
-    /*
-    void OnMouseDrag()
-    {
-        transform.position = GetMouseWorldPos() + mOffset;
-    }
-    */
 
     void OnMouseDrag()
     {
