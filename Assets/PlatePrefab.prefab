@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3728638608587966781}
   - component: {fileID: -7578474407452532607}
   - component: {fileID: -5567011590162490000}
+  - component: {fileID: 6238549916838612900}
   m_Layer: 0
   m_Name: PlatePrefab
   m_TagString: Connectable
@@ -101,7 +102,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -131,7 +132,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f68e1db36ae87e14eb1666c3dbefbb1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connectionDistance: 5
   otherObject: {fileID: 3056984230220651695, guid: a357534eb38f60443969deee483ff710, type: 3}
-  leftOffset: {x: -3, y: 0, z: 0}
-  rightOffset: {x: 3, y: 0, z: 0}
+  connectionDistance: 5
+  leftOffset: {x: -2, y: 0, z: 0}
+  rightOffset: {x: 2, y: 0, z: 0}
+--- !u!54 &6238549916838612900
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5187662488763000712}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
