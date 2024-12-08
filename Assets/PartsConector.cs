@@ -23,8 +23,6 @@ public class PartsConector : MonoBehaviour
         {
             ConnectObjects();
         }
-
-        Debug.Log(otherObject.transform.position);
     }
 
     void ConnectObjects()

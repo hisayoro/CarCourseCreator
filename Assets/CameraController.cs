@@ -73,19 +73,19 @@ public class CameraController : MonoBehaviour
         //cameraRotAngle = 180のとき（左：+X,右：-X、前：-Z、後：+Z）
         else if (cameraRotAngle == 180)
         {
-            if ((Input.GetKey(KeyCode.LeftArrow)))
+            if (Input.GetKey(KeyCode.LeftArrow))
             {
                 this.transform.Translate(moveAmount, 0, 0, Space.World);
             }
-            if ((Input.GetKey(KeyCode.RightArrow)))
+            if (Input.GetKey(KeyCode.RightArrow))
             {
                 this.transform.Translate(-moveAmount, 0, 0, Space.World);
             }
-            if ((Input.GetKey(KeyCode.UpArrow)))
+            if (Input.GetKey(KeyCode.UpArrow))
             {
                 this.transform.Translate(0, 0, -moveAmount, Space.World);
             }
-            if ((Input.GetKey(KeyCode.DownArrow)))
+            if (Input.GetKey(KeyCode.DownArrow))
             {
                 this.transform.Translate(0, 0, moveAmount, Space.World);
             }
@@ -94,19 +94,19 @@ public class CameraController : MonoBehaviour
         //cameraRotAngle = 270のとき（左：-Z,右：+Z、前：-X、後：+X）
         else if (cameraRotAngle == 270)
         {
-            if ((Input.GetKey(KeyCode.LeftArrow)))
+            if (Input.GetKey(KeyCode.LeftArrow))
             {
                 this.transform.Translate(0, 0, -moveAmount, Space.World);
             }
-            if ((Input.GetKey(KeyCode.RightArrow)))
+            if (Input.GetKey(KeyCode.RightArrow))
             {
                 this.transform.Translate(0, 0, moveAmount, Space.World);
             }
-            if ((Input.GetKey(KeyCode.UpArrow)))
+            if (Input.GetKey(KeyCode.UpArrow))
             {
                 this.transform.Translate(-moveAmount, 0, 0, Space.World);
             }
-            if ((Input.GetKey(KeyCode.DownArrow)))
+            if (Input.GetKey(KeyCode.DownArrow))
             {
                 this.transform.Translate(moveAmount, 0, 0, Space.World);
             }
@@ -115,8 +115,8 @@ public class CameraController : MonoBehaviour
         //ターゲットに追従したカメラの位置
         this.mainCamera.transform.position = this.transform.position - new Vector3(diffX,diffY,diffZ);
 
-        //カメラを回転（A：反時計回り、S：時計回り）
-        if ((Input.GetKeyDown(KeyCode.A)))
+        //カメラを回転
+        if (Input.GetKeyDown(KeyCode.A))
         {
             this.cameraRotAngle += 90;
             //360°回ったら0°に戻す
@@ -125,7 +125,6 @@ public class CameraController : MonoBehaviour
                 cameraRotAngle = 0;
             }
             this.mainCamera.transform.Rotate(0, 90, 0, Space.World);
-
         }
 
         //ターゲットの位置を中心としてカメラの角度に合わせてカメラを移動

@@ -29,6 +29,7 @@ public class PartsController : MonoBehaviour
         transform.position = new Vector3(mousePosition.x, 0, mousePosition.z);
     }
 
+    //マウス上にあるパーツだけを右クリックで回転させる・・・始まり
     void Update()
     {
         if (Input.GetMouseButtonDown(1))
@@ -41,7 +42,8 @@ public class PartsController : MonoBehaviour
             {
                 if (hit.transform == transform)
                 {
-                    isSelected = true; RotateObject();
+                    isSelected = true;
+                    RotateObject();
                 }
                 else
                 {
@@ -57,5 +59,5 @@ public class PartsController : MonoBehaviour
             transform.Rotate(0, 90, 0, Space.Self);
         }
     }
-
+    //マウス上にあるパーツだけを右クリックで回転させる・・・終わり
 }
