@@ -36,10 +36,30 @@ public class PartsDestroyer : MonoBehaviour
                 }
             }
         }
+        
+        if (this.transform.position.y < -30)
+        {
+            Destroy(this.gameObject);
+
+            if (partsGenerator != null)
+            {
+                partsGenerator.carAmount++;
+            }
+        }
     }
     void DestroyObject()
     {
-        if (isSelected && this.gameObject.name == "StraightPrefab(Clone)")
+        if (isSelected && this.gameObject.name == "carPrefab(Clone)")
+        {
+            Destroy(this.gameObject);
+
+            if (partsGenerator != null)
+            {
+                partsGenerator.carAmount++;
+            }
+        }
+
+        else if (isSelected && this.gameObject.name == "StraightPrefab(Clone)")
         {
             Destroy(this.gameObject);
 
@@ -58,6 +78,5 @@ public class PartsDestroyer : MonoBehaviour
                 partsGenerator.curveAmount++;
             }
         }
-
     }
 }
