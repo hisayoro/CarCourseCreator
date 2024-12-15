@@ -10,9 +10,6 @@ public class PartsConector : MonoBehaviour
     public Vector3 leftOffset;  //左側の面のオフセット
     public Vector3 rightOffset; //右側の面のオフセット
 
-
-
-
     void Update()
     {
         // 他のオブジェクトとの距離を計算

@@ -39,23 +39,23 @@ public class PartsDestroyer : MonoBehaviour
     }
     void DestroyObject()
     {
-        if (isSelected && this.gameObject.name == "PlatePrefab(Clone)")
+        if (isSelected && this.gameObject.name == "StraightPrefab(Clone)")
         {
             Destroy(this.gameObject);
 
             if(partsGenerator != null)
             {
-                partsGenerator.plateAmount++;
+                partsGenerator.straightAmount++;
             }
         }
 
-        else if (isSelected && this.gameObject.name == "CubePrefab(Clone)")
+        else if (isSelected && this.gameObject.name == "CurvePrefab(Clone)")
         {
             Destroy(this.gameObject);
 
             if (partsGenerator != null)
             {
-                partsGenerator.cubeAmount++;
+                partsGenerator.curveAmount++;
             }
         }
 
