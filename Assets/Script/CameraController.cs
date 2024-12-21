@@ -7,7 +7,7 @@ public class CameraController : MonoBehaviour
     //カメラオブジェクトの取得
     private GameObject mainCamera;
     //カメラの移動速度
-    private float moveAmount = 0.05f;
+    private float moveAmount = 0.50f;
     //カメラの回転角度
     private int cameraRotAngle = 0;
     //ターゲットとカメラの初期位置の差分
@@ -20,14 +20,14 @@ public class CameraController : MonoBehaviour
     {
         this.mainCamera = GameObject.Find("Main Camera");
         this.diffX = transform.position.x - mainCamera.transform.position.x;
-        this.diffY = transform.position.x - mainCamera.transform.position.y;
+        this.diffY = transform.position.y - mainCamera.transform.position.y;
         this.diffZ = transform.position.z - mainCamera.transform.position.z;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //カメラターゲットを前後左右に移動（矢印キー）
+        //カメラターゲットを前後左右に移動（矢印キー）、ズームイン(Z)アウト(X)
         //cameraRotAngle = 0のとき（左：-X,右：+X、前：+Z、後：-Z）
         if (cameraRotAngle == 0)
         {
@@ -47,8 +47,15 @@ public class CameraController : MonoBehaviour
             {
                 this.transform.Translate(0, 0, -moveAmount, Space.World);
             }
+            else if (Input.GetKey(KeyCode.Z))
+            {
+                this.transform.Translate(0, -moveAmount, 0, Space.World);
+            }
+            else if (Input.GetKey(KeyCode.X))
+            {
+                this.transform.Translate(0, moveAmount, 0, Space.World);
+            }
         }
-
         //cameraRotAngle = 90のとき（左：+Z,右：-Z、前：+X、後：-X）
         else if (cameraRotAngle == 90)
         {
@@ -56,17 +63,25 @@ public class CameraController : MonoBehaviour
             {
                 this.transform.Translate(0, 0, moveAmount, Space.World);
             }
-            if ((Input.GetKey(KeyCode.RightArrow)))
+            else if ((Input.GetKey(KeyCode.RightArrow)))
             {
                 this.transform.Translate(0, 0, -moveAmount, Space.World);
             }
-            if ((Input.GetKey(KeyCode.UpArrow)))
+            else if ((Input.GetKey(KeyCode.UpArrow)))
             {
                 this.transform.Translate(moveAmount, 0, 0, Space.World);
             }
-            if ((Input.GetKey(KeyCode.DownArrow)))
+            else if ((Input.GetKey(KeyCode.DownArrow)))
             {
                 this.transform.Translate(-moveAmount, 0, 0, Space.World);
+            }
+            else if (Input.GetKey(KeyCode.Z))
+            {
+                this.transform.Translate(0, -moveAmount, 0, Space.World);
+            }
+            else if (Input.GetKey(KeyCode.X))
+            {
+                this.transform.Translate(0, moveAmount, 0, Space.World);
             }
         }
 
@@ -77,17 +92,25 @@ public class CameraController : MonoBehaviour
             {
                 this.transform.Translate(moveAmount, 0, 0, Space.World);
             }
-            if (Input.GetKey(KeyCode.RightArrow))
+            else if (Input.GetKey(KeyCode.RightArrow))
             {
                 this.transform.Translate(-moveAmount, 0, 0, Space.World);
             }
-            if (Input.GetKey(KeyCode.UpArrow))
+            else if (Input.GetKey(KeyCode.UpArrow))
             {
                 this.transform.Translate(0, 0, -moveAmount, Space.World);
             }
-            if (Input.GetKey(KeyCode.DownArrow))
+            else if (Input.GetKey(KeyCode.DownArrow))
             {
                 this.transform.Translate(0, 0, moveAmount, Space.World);
+            }
+            else if (Input.GetKey(KeyCode.Z))
+            {
+                this.transform.Translate(0, -moveAmount, 0, Space.World);
+            }
+            else if (Input.GetKey(KeyCode.X))
+            {
+                this.transform.Translate(0, moveAmount, 0, Space.World);
             }
         }
 
@@ -98,22 +121,30 @@ public class CameraController : MonoBehaviour
             {
                 this.transform.Translate(0, 0, -moveAmount, Space.World);
             }
-            if (Input.GetKey(KeyCode.RightArrow))
+            else if (Input.GetKey(KeyCode.RightArrow))
             {
                 this.transform.Translate(0, 0, moveAmount, Space.World);
             }
-            if (Input.GetKey(KeyCode.UpArrow))
+            else if (Input.GetKey(KeyCode.UpArrow))
             {
                 this.transform.Translate(-moveAmount, 0, 0, Space.World);
             }
-            if (Input.GetKey(KeyCode.DownArrow))
+            else if (Input.GetKey(KeyCode.DownArrow))
             {
                 this.transform.Translate(moveAmount, 0, 0, Space.World);
+            }
+            else if (Input.GetKey(KeyCode.Z))
+            {
+                this.transform.Translate(0, -moveAmount, 0, Space.World);
+            }
+            else if (Input.GetKey(KeyCode.X))
+            {
+                this.transform.Translate(0, moveAmount, 0, Space.World);
             }
         }
 
         //ターゲットに追従したカメラの位置
-        this.mainCamera.transform.position = this.transform.position - new Vector3(diffX,diffY,diffZ);
+        this.mainCamera.transform.position = this.transform.position - new Vector3(diffX, diffY, diffZ);
 
         //カメラを回転
         if (Input.GetKeyDown(KeyCode.A))
