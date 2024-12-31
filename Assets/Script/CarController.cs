@@ -27,8 +27,13 @@ public class CarController : MonoBehaviour
 
         if (carObject != null && OnOff == false)
         {
-            velocityZ = 50.0f;
+            velocityZ = 30.0f;
+            //d—Í‚ğON‚É‚·‚é
             this.carObject.GetComponent<Rigidbody>().useGravity = true;
+            //Constraints‚ÌRotation‚ğXYZ‚·‚×‚Ä‰ğœ‚·‚é
+            //this.carObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            this.carObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+
             OnOff = true;
         }
         else if (carObject != null && OnOff == true)

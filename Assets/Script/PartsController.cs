@@ -5,8 +5,11 @@ using UnityEngine;
 
 public class PartsController : MonoBehaviour
 {
+    private Rigidbody rb;
     private Vector3 mOffset;
     private float mZCoord;
+    private float gridSize = 5f; // グリッドのサイズ
+
     private bool isSelected = false;    //オブジェクト回転用
 
     void OnMouseDown()
@@ -25,9 +28,21 @@ public class PartsController : MonoBehaviour
 
     void OnMouseDrag()
     {
+        rb = GetComponent<Rigidbody>();
+        rb.constraints = RigidbodyConstraints.FreezeRotation;
+        
         //マウスドラッグするとXZ平面のみを移動するようになる(Y=0)
         Vector3 mousePosition = GetMouseWorldPos() + mOffset;
-        transform.position = new Vector3(mousePosition.x, 0, mousePosition.z);
+        Vector3 targetPosition = new Vector3(mousePosition.x, 0, mousePosition.z);
+
+        // グリッドにスナップさせた位置を計算
+        Vector3 snapPosition = new Vector3(
+            Mathf.Round(targetPosition.x / gridSize) * gridSize,
+            0,
+            Mathf.Round(targetPosition.z / gridSize) * gridSize);
+
+        // オブジェクトをスナップ位置に移動
+        transform.position = snapPosition;
     }
 
     //マウス上にあるパーツだけを右クリックで回転させる・・・始まり
@@ -52,8 +67,6 @@ public class PartsController : MonoBehaviour
                 }
             }
         }
-
-
     }
     void RotateObject()
     {

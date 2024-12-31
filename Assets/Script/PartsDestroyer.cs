@@ -49,7 +49,7 @@ public class PartsDestroyer : MonoBehaviour
     }
     void DestroyObject()
     {
-        if (isSelected && this.gameObject.name == "carPrefab(Clone)")
+        if (isSelected && this.gameObject.name == "CarPrefab(Clone)")
         {
             Destroy(this.gameObject);
 
@@ -59,23 +59,43 @@ public class PartsDestroyer : MonoBehaviour
             }
         }
 
-        else if (isSelected && this.gameObject.name == "StraightPrefab(Clone)")
+        else if (isSelected && this.gameObject.name == "Straight1(Clone)")
         {
             Destroy(this.gameObject);
 
             if(partsGenerator != null)
             {
-                partsGenerator.straightAmount++;
+                partsGenerator.straightSAmount++;
             }
         }
 
-        else if (isSelected && this.gameObject.name == "CurvePrefab(Clone)")
+        else if (isSelected && this.gameObject.name == "Straight2(Clone)")
         {
             Destroy(this.gameObject);
 
             if (partsGenerator != null)
             {
-                partsGenerator.curveAmount++;
+                partsGenerator.straightLAmount++;
+            }
+        }
+
+        else if (isSelected && this.gameObject.name == "CurveR1(Clone)")
+        {
+            Destroy(this.gameObject);
+
+            if (partsGenerator != null)
+            {
+                partsGenerator.curveSAmount++;
+            }
+        }
+
+        else if (isSelected && this.gameObject.name == "CurveR2(Clone)")
+        {
+            Destroy(this.gameObject);
+
+            if (partsGenerator != null)
+            {
+                partsGenerator.curveLAmount++;
             }
         }
     }

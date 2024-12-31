@@ -5,7 +5,7 @@ using UnityEngine;
 public class TestCarController : MonoBehaviour
 {
     //前方向の速度
-    private float velocityZ = 0;
+    public float velocityZ = 0;
     private bool OnOff = false;
 
     //移動させるコンポーネントを入れる
@@ -30,7 +30,7 @@ public class TestCarController : MonoBehaviour
     {
         if (OnOff == false)
         {
-            velocityZ = 50.0f;
+            velocityZ = 10.0f;
             OnOff = true;
         }
         else
